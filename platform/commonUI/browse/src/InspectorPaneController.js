@@ -35,9 +35,8 @@ define(
          * @param navigationService
          * @constructor
          */
-        function InspectorPaneController($scope, agentService, $window, navigationService) {
-            PaneController.call(this, $scope, agentService, $window);
-
+        function InspectorPaneController($scope, agentService, $window, navigationService, $location) {
+            PaneController.call(this, $scope, agentService, $window, $location);
             var statusListener,
                 self = this;
 

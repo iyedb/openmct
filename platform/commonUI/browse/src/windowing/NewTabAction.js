@@ -33,11 +33,12 @@ define(
          * @constructor
          * @implements {Action}
          */
-        function NewTabAction(urlService, $window, context) {
+        function NewTabAction($location, urlService, $window, context) {
             context = context || {};
 
             this.urlService = urlService;
             this.open = function () {
+                arguments[0] += "&tabOpened=true"; // add tabOpened param
                 $window.open.apply($window, arguments);
             };
 
