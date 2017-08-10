@@ -31,12 +31,20 @@ define(
          * @constructor
          * @memberof platform/commonUI/browse
          */
-        function PaneController($scope, agentService, $window, $location) {
+        function PaneController($scope, agentService, $window, $location, $attrs) {
             var self = this;
             this.agentService = agentService;
 
-            this.state = !$location.search()["tabOpened"];
-            console.log(this);
+            var alias = $attrs.alias;
+            var aliasParams = $location.search()["hide" + alias];
+
+            //check if new tab is not opened and the url params doesnt specify hide
+            this.state = !$location.search()["tabOpened"] && !aliasParams;
+
+            if(aliasParams){
+              $location.search(("hide" + alias), undefined);
+            }
+            
             /**
              * Callback to invoke when any selection occurs in the tree.
              * This controller can be passed in as the `parameters` object
