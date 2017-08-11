@@ -33,7 +33,7 @@ define(
          * @constructor
          * @implements {Action}
          */
-        function NewTabAction($location, urlService, $window, context) {
+        function NewTabAction(urlService, $window, context) {
             context = context || {};
 
             this.urlService = urlService;

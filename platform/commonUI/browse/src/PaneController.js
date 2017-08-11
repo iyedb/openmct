@@ -38,13 +38,14 @@ define(
             var alias = $attrs.alias;
             var aliasParams = $location.search()["hide" + alias];
 
-            //check if new tab is not opened and the url params doesnt specify hide
+            // check if new tab is not opened and the url params doesnt specify hide
             this.state = !$location.search()["tabOpened"] && !aliasParams;
 
+            // If alias params are present, set them to undefined after triggering state
             if(aliasParams){
               $location.search(("hide" + alias), undefined);
             }
-            
+
             /**
              * Callback to invoke when any selection occurs in the tree.
              * This controller can be passed in as the `parameters` object

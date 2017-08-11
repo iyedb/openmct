@@ -29,7 +29,9 @@ define(
                 mockAgentService,
                 mockDomainObjects,
                 mockWindow,
-                controller;
+                controller,
+                mockLocation,
+                mockAttrs;
 
             // We want to reinstantiate for each test case
             // because device state can influence constructor-time behavior
@@ -37,7 +39,9 @@ define(
                 return new PaneController(
                     mockScope,
                     mockAgentService,
-                    mockWindow
+                    mockWindow,
+                    mockLocation,
+                    mockAttrs
                 );
             }
 
@@ -59,6 +63,11 @@ define(
                     ["isMobile", "isPhone", "isTablet", "isPortrait", "isLandscape"]
                 );
                 mockWindow = jasmine.createSpyObj("$window", ["open"]);
+
+                mockLocation = jasmine.createSpyObj("$location",["search"]);
+                mockLocation.search.andReturn({});
+
+                mockAttrs = jasmine.createSpyObj("$attrs", ["alias"]);
             });
 
             it("is initially visible", function () {

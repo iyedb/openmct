@@ -226,7 +226,6 @@ define([
                         "contextual"
                     ],
                     "depends": [
-                        "$location",
                         "urlService",
                         "$window"
                     ],
