@@ -39,11 +39,11 @@ define(
             var aliasParams = $location.search()["hide" + alias];
 
             // check if new tab is not opened and the url params doesnt specify hide
-            this.state = !$location.search()["tabOpened"] && !aliasParams;
+            this.state = !$location.search().tabOpened && !aliasParams;
 
             // If alias params are present, set them to undefined after triggering state
-            if(aliasParams){
-              $location.search(("hide" + alias), undefined);
+            if (aliasParams) {
+                $location.search(("hide" + alias), undefined);
             }
 
             /**

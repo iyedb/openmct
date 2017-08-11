@@ -64,7 +64,7 @@ define(
                 );
                 mockWindow = jasmine.createSpyObj("$window", ["open"]);
 
-                mockLocation = jasmine.createSpyObj("$location",["search"]);
+                mockLocation = jasmine.createSpyObj("$location", ["search"]);
                 mockLocation.search.andReturn({});
 
                 mockAttrs = jasmine.createSpyObj("$attrs", ["alias"]);

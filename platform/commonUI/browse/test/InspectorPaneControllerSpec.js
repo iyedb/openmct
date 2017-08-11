@@ -73,7 +73,7 @@ define(
                 mockDomainObject.hasCapability.andReturn(true);
                 mockDomainObject.getCapability.andReturn(mockStatusCapability);
 
-                mockLocation = jasmine.createSpyObj("$location",["search"]);
+                mockLocation = jasmine.createSpyObj("$location", ["search"]);
                 mockLocation.search.andReturn({});
 
                 mockAttrs = jasmine.createSpyObj("$attrs", ["alias"]);
