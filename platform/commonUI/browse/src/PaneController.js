@@ -35,14 +35,13 @@ define(
             var self = this;
             this.agentService = agentService;
 
-            var hideParameterPresent = $location.search()[$attrs.hideparameter];
+            var hideParameterPresent = $location.search().hasOwnProperty($attrs.hideparameter);
 
-            // hide visibility if user provides hide parameter or default to show
-            this.state = !hideParameterPresent;
-
-            // If alias params are present, set them to undefined after triggering state
-            if (hideParameterPresent) {
-                $location.search(($attrs.hideparameter), undefined);
+            if ($attrs.hideparameter && hideParameterPresent) {
+                this.state = false;
+                $location.search($attrs.hideparameter, undefined);
+            } else {
+                this.state = true;
             }
 
             /**
