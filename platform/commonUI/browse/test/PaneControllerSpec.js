@@ -64,10 +64,12 @@ define(
                 );
                 mockWindow = jasmine.createSpyObj("$window", ["open"]);
 
-                mockLocation = jasmine.createSpyObj("$location", ["search"]);
-                mockLocation.search.andReturn({});
+                mockLocation = { search: function () {
+                        return {};
+                    }
+                };
 
-                mockAttrs = jasmine.createSpyObj("$attrs", ["alias"]);
+                mockAttrs = {};
             });
 
             it("is initially visible", function () {

@@ -73,10 +73,12 @@ define(
                 mockDomainObject.hasCapability.andReturn(true);
                 mockDomainObject.getCapability.andReturn(mockStatusCapability);
 
-                mockLocation = jasmine.createSpyObj("$location", ["search"]);
-                mockLocation.search.andReturn({});
+                mockLocation = { search: function () {
+                        return {};
+                    }
+                };
 
-                mockAttrs = jasmine.createSpyObj("$attrs", ["alias"]);
+                mockAttrs = {};
 
                 controller = new InspectorPaneController(mockScope, mockAgentService, mockWindow, mockNavigationService, mockLocation, mockAttrs);
             });
