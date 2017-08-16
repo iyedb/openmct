@@ -38,7 +38,7 @@ define(
 
             this.urlService = urlService;
             this.open = function () {
-                arguments[0] += "&hideTree=true&hideInspector=true"; // add tabOpened param
+                arguments[0] += "&hideTree=true&hideInspector=true"; //default to hideTree and hideInspector
                 $window.open.apply($window, arguments);
             };
 

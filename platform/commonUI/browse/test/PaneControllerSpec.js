@@ -97,6 +97,22 @@ define(
                 // Tree should have collapsed
                 expect(controller.visible()).toBeFalsy();
             });
+
+            it("if url includes hide parameters then Tree and Inspector are not visible", function () {
+                mockLocation = {search: function () {
+                    return {hasOwnProperty: function () {
+                        return true;
+                    }};
+                }};
+                
+                mockAttrs = {hideparameter: true};
+
+                expect(instantiateController().visible()).toBeFalsy();
+            });
+
+            it("if url does not include hide parameters then Tree and Inspector are visible", function () {
+                expect(instantiateController().visible()).toBeTruthy();
+            });
         });
     }
 );
