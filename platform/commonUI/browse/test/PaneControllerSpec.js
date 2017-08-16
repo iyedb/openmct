@@ -104,9 +104,8 @@ define(
                         return true;
                     }};
                 }};
-                
                 mockAttrs = {hideparameter: true};
-
+                
                 expect(instantiateController().visible()).toBeFalsy();
             });
 
