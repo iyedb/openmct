@@ -98,13 +98,19 @@ define(
                 expect(controller.visible()).toBeFalsy();
             });
 
-            it("if url includes hide parameters then Tree and Inspector are not visible", function () {
+            it("if url includes hideTree parameter then Tree is not visible", function () {
                 mockLocation = {search: function () {
-                    return {hasOwnProperty: function () {
-                        return true;
-                    }};
+                    return {hideTree: true};
                 }};
-                mockAttrs = {hideparameter: true};
+                mockAttrs = {hideparameter: 'hideTree'};
+                expect(instantiateController().visible()).toBeFalsy();
+            });
+
+            it("if url includes hideInspector parameter then inspector is not visible", function () {
+                mockLocation = {search: function () {
+                    return {hideInspector: true};
+                }};
+                mockAttrs = {hideparameter: 'hideInspector'};
                 expect(instantiateController().visible()).toBeFalsy();
             });
 

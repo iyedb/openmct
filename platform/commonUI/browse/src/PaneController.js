@@ -37,8 +37,6 @@ define(
 
             var hideParameterPresent = $location.search().hasOwnProperty($attrs.hideparameter);
 
-            this.hideParameter = $attrs.hideparameter;
-
             if ($attrs.hideparameter && hideParameterPresent) {
                 this.state = false;
                 $location.search($attrs.hideparameter, undefined);
